@@ -1,0 +1,31 @@
+{
+    "version": "1",
+    "inputs": [
+        {
+            "name": "prompt",
+            "description": "The prompt to feed to the model.",
+            "type": "string",
+            "required": true,
+            "default": "Write a function that computes the set of sums of all contiguous sublists of a given list."
+        },
+        {
+            "name": "temperature",
+            "description": "The temperature to use.",
+            "type": "number",
+            "default": 0.5
+        },
+        {
+            "name": "max_new_tokens",
+            "description": "Generate at most this many new tokens in the response.",
+            "type": "number",
+            "default": 100
+        }
+    ],
+    "output": {
+        "result": {
+            "type": "string",
+            "description": "The generated code.",
+            "path": "output"
+        }
+    }
+}
