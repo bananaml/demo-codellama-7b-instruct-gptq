@@ -9,9 +9,9 @@ app = Potassium("CodeLlama-34B-Instruct-GPTQ")
 @app.init
 def init() -> dict:
     """Initialize the application with the model and tokenizer."""
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME_OR_PATH, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL, use_fast=True)
 
-    model = AutoGPTQForCausalLM.from_quantized(MODEL_NAME_OR_PATH,
+    model = AutoGPTQForCausalLM.from_quantized(MODEL,
             use_safetensors=True,
             trust_remote_code=False,
             device="cuda:0",
