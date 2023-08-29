@@ -11,7 +11,8 @@ def download_model() -> tuple:
             trust_remote_code=False,
             device="cuda:0",
             use_triton=False,
-            quantize_config=None)
+            quantize_config=None,
+            inject_fused_attention=False)
     return model, tokenizer
 
 if __name__ == "__main__":

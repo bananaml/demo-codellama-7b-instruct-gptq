@@ -1,6 +1,6 @@
 from potassium import Potassium, Request, Response
 from transformers import AutoTokenizer
-from auto_gptq import AutoGPTQForCausalLM
+from auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig
 
 MODEL = "TheBloke/CodeLlama-34B-Instruct-GPTQ"
 
@@ -16,14 +16,16 @@ def init() -> dict:
             trust_remote_code=False,
             device="cuda:0",
             use_triton=False,
-            quantize_config=None)
-
-    return {
+            quantize_config=None,
+            inject_fused_attention=False)
+    
+    context = {
         "model": model,
         "tokenizer": tokenizer
     }
+    return context
 
-@app.handler()
+@app.handler("/")
 def handler(context: dict, request: Request) -> Response:
     """Handle a request to generate code from a prompt."""
     model = context.get("model")
@@ -35,10 +37,16 @@ def handler(context: dict, request: Request) -> Response:
     {prompt}
     [/INST]
     '''
+
+    input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
+    output = model.generate(inputs=input_ids, temperature=0.7, max_new_tokens=512)
+    print(tokenizer.decode(output[0]))
+
+
     input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
     output = model.generate(inputs=input_ids, temperature=temperature, max_new_tokens=max_new_tokens)
     result = tokenizer.decode(output[0])
-    return Response(json={"output": result}, status=200)
+    return Response(json={"outputs": result}, status=200)
 
 if __name__ == "__main__":
     app.serve()
