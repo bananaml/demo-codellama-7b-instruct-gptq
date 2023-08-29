@@ -40,7 +40,7 @@ def handler(context: dict, request: Request) -> Response:
     input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
     output = model.generate(inputs=input_ids, temperature=temperature, max_new_tokens=max_new_tokens)
     result = tokenizer.decode(output[0])
-    return Response(json={"outputs": result}, status=200)
+    return Response(json={"output": result}, status=200)
 
 if __name__ == "__main__":
     app.serve()
