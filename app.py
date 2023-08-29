@@ -2,9 +2,9 @@ from potassium import Potassium, Request, Response
 from transformers import AutoTokenizer
 from auto_gptq import AutoGPTQForCausalLM, BaseQuantizeConfig
 
-MODEL = "TheBloke/CodeLlama-34B-Instruct-GPTQ"
+MODEL = "TheBloke/CodeLlama-7B-Instruct-GPTQ"
 
-app = Potassium("CodeLlama-34B-Instruct-GPTQ")
+app = Potassium("CodeLlama-7B-Instruct-GPTQ")
 
 @app.init
 def init() -> dict:

@@ -1,7 +1,7 @@
 from transformers import AutoTokenizer
 from auto_gptq import AutoGPTQForCausalLM
 
-MODEL = "TheBloke/CodeLlama-34B-Instruct-GPTQ"
+MODEL = "TheBloke/CodeLlama-7B-Instruct-GPTQ"
 
 def download_model() -> tuple:
     """Download the model and tokenizer."""

@@ -1,8 +1,8 @@
 ![](https://www.banana.dev/lib_zOkYpJoyYVcAamDf/x2p804nk9qvjb1vg.svg?w=340 "Banana.dev")
 
-# Banana.dev CodeLlama-34B-Instruct-GPTQ starter template
+# Banana.dev CodeLlama-7B-Instruct-GPTQ starter template
 
-This is a CodeLlama-34B-Instruct-GPTQ starter template from [Banana.dev](https://www.banana.dev) that allows on-demand serverless GPU inference.
+This is a CodeLlama-7B-Instruct-GPTQ starter template from [Banana.dev](https://www.banana.dev) that allows on-demand serverless GPU inference.
 
 You can fork this repository and deploy it on Banana as is, or customize it based on your own needs.
 
@@ -11,7 +11,7 @@ You can fork this repository and deploy it on Banana as is, or customize it base
 
 ## Deploying on Banana.dev
 
-1. [Fork this](https://github.com/bananaml/demo-codellama-34b-instruct-gptq/fork) repository to your own Github account.
+1. [Fork this](https://github.com/bananaml/demo-codellama-7b-instruct-gptq/fork) repository to your own Github account.
 2. Connect your Github account on Banana.
 3. [Create a new model](https://app.banana.dev/deploy) on Banana from the forked Github repository.
 
