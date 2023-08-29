@@ -37,12 +37,6 @@ def handler(context: dict, request: Request) -> Response:
     {prompt}
     [/INST]
     '''
-
-    input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
-    output = model.generate(inputs=input_ids, temperature=0.7, max_new_tokens=512)
-    print(tokenizer.decode(output[0]))
-
-
     input_ids = tokenizer(prompt_template, return_tensors='pt').input_ids.cuda()
     output = model.generate(inputs=input_ids, temperature=temperature, max_new_tokens=max_new_tokens)
     result = tokenizer.decode(output[0])
